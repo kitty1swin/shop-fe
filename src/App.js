@@ -1,18 +1,25 @@
-import * as React from 'react';
-import CssBaseline from '@mui/material/CssBaseline';
+import * as React from "react";
+import CssBaseline from "@mui/material/CssBaseline";
 
-import Header from './components/Header'; 
-import Footer from './components/Footer';
+import { Header } from "./containers/Header";
+import { Footer } from "./containers/Footer";
+import { Products } from "./containers/Products";
+import { DescriptionsBlock } from "./containers/DescriptonsBlock";
+
+import { Provider } from "react-redux";
+import { store } from "./redux/store";
 
 function App() {
   return (
-    <React.Fragment>
+    <Provider store={store}>
       <CssBaseline />
       <div className="wrapper">
-        <Header/>
-        <Footer/>
+        <Header />
+        <DescriptionsBlock />
+        <Products />
+        <Footer />
       </div>
-    </React.Fragment>
+    </Provider>
   );
 }
 
