@@ -15,7 +15,7 @@ const style = {
   p: 4,
 };
 
-export default function BaseModal({ open, onClose, title, children }) {
+export const BaseModal = ({ open, onClose, title, children }) => {
   return (
     <div>
       <Modal
@@ -38,4 +38,4 @@ export default function BaseModal({ open, onClose, title, children }) {
       </Modal>
     </div>
   );
-}
+};

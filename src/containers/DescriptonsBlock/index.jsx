@@ -1,6 +1,6 @@
 import { Box, Stack, Typography } from "@mui/material";
 import React from "react";
-import DescriptionBlock from "../../components/DescriptionBlock";
+import { DescriptionBlock } from "../../components/DescriptionBlock";
 
 const descriptions = [
   {
@@ -39,7 +39,7 @@ const descriptions = [
   },
 ];
 
-export default function DescriptionsBlock() {
+export const DescriptionsBlock = () => {
   return (
     <Box>
       <Typography variant="h3">Оплата</Typography>
@@ -61,4 +61,4 @@ export default function DescriptionsBlock() {
       </Stack>
     </Box>
   );
-}
+};

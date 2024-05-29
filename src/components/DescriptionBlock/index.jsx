@@ -1,7 +1,7 @@
 import { Stack, Box } from "@mui/material";
 import React from "react";
 
-export default function DescriptionBlock({ code, content }) {
+export const DescriptionBlock = ({ code, content }) => {
   return (
     <Stack direction="column" gap={0} spacing={0} bgcolor="primary.light">
       <Box>
@@ -15,4 +15,4 @@ export default function DescriptionBlock({ code, content }) {
       <Box p={3}>{content}</Box>
     </Stack>
   );
-}
+};
