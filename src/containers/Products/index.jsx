@@ -15,14 +15,14 @@ export const Products = () => {
   useEffect(() => {
     axios
       .get("http://localhost:5026/api/Product")
-      .then((data) => dispatch(setProducts(data)))
+      .then((data) => dispatch(setProducts(data.data)))
       .catch((e) => console.log("Products is not loaded", e));
   }, [dispatch]);
 
   useEffect(() => {
     axios
       .get("http://localhost:5026/api/Feedback")
-      .then((data) => dispatch(setFeedbacks(data)))
+      .then((data) => dispatch(setFeedbacks(data.data)))
       .catch((e) => console.log("Feedbacks is not loaded", e));
   }, [dispatch]);
 
