@@ -25,7 +25,7 @@ export const SignInModal = ({ open, onClose }) => {
     form.preventDefault();
 
     axios
-      .post("http://localhost:5026/User/register", {
+      .post("http://localhost:5026/api/User/register", {
         CreateDate: new Date().toJSON(),
         UpdateDate: new Date().toJSON(),
         Name: form.target.Name.value,

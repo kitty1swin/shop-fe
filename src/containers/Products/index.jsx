@@ -14,14 +14,14 @@ export const Products = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5026/Product")
+      .get("http://localhost:5026/api/Product")
       .then((data) => dispatch(setProducts(data)))
       .catch((e) => console.log("Products is not loaded", e));
   }, [dispatch]);
 
   useEffect(() => {
     axios
-      .get("http://localhost:5026/Feedback")
+      .get("http://localhost:5026/api/Feedback")
       .then((data) => dispatch(setFeedbacks(data)))
       .catch((e) => console.log("Feedbacks is not loaded", e));
   }, [dispatch]);
