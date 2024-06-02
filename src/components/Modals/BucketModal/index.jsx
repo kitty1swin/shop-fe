@@ -44,7 +44,7 @@ export const BucketModal = ({ open, onClose }) => {
     if (adress) {
       uniqueItemsWithCount.map((item) => {
         axios
-          .post("http://localhost:46141/user/order", {
+          .post("http://localhost:7132/user/order", {
             Status: "В прогрессе",
             Adress: adress,
             TotalPrice: +item.count * +item.Price,
