@@ -3,6 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   isAuth: false,
   bucket: [],
+  products: [],
+  feedbacks: [],
 };
 
 export const globalSlice = createSlice({
@@ -13,11 +15,18 @@ export const globalSlice = createSlice({
       state.isAuth = action.payload;
     },
     setBucket: (state, action) => {
-      state.bucket = [...state.bucket, action.payload];
+      state.bucket = action.payload;
+    },
+    setProducts: (state, action) => {
+      state.products = action.payload;
+    },
+    setFeedbacks: (state, action) => {
+      state.feedbacks = action.payload;
     },
   },
 });
 
-export const { setAuth, setBucket } = globalSlice.actions;
+export const { setAuth, setBucket, setProducts, setFeedbacks } =
+  globalSlice.actions;
 
 export default globalSlice.reducer;

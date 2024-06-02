@@ -1,10 +1,12 @@
 export const MOCKED_FEEDBACKS = [
   {
-    author: "Ilya",
-    comment: "Не медовик -- не вкусно!",
+    Id: 1,
+    UserId: "Ilya",
+    Comment: "Не медовик -- не вкусно!",
   },
   {
-    author: "Поля",
-    comment: "Там фруктики!",
+    Id: 2,
+    UserId: "Поля",
+    Comment: "Там фруктики!",
   },
 ];

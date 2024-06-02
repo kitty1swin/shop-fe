@@ -7,7 +7,6 @@ export const SignUpForm = ({ onSubmit, handleChangeMode }) => {
   const [phoneNumberValue, setPhoneNumberValue] = React.useState("");
 
   const handlePhoneNumberChange = (newValue) => {
-    console.log(newValue);
     setPhoneNumberValue(newValue);
   };
 
@@ -20,7 +19,7 @@ export const SignUpForm = ({ onSubmit, handleChangeMode }) => {
         fullWidth
         id="Surname"
         label="Фамилия"
-        name="surname"
+        name="Surname"
         autoComplete="surname"
         autoFocus
       />
@@ -31,8 +30,19 @@ export const SignUpForm = ({ onSubmit, handleChangeMode }) => {
         fullWidth
         id="Name"
         label="Имя"
-        name="name"
+        name="Name"
         autoComplete="name"
+        autoFocus
+      />
+      <TextField
+        variant="outlined"
+        margin="normal"
+        required
+        fullWidth
+        id="SecondName"
+        label="Отчество"
+        name="Patronymic"
+        autoComplete="second name"
         autoFocus
       />
       <TextField
@@ -42,7 +52,7 @@ export const SignUpForm = ({ onSubmit, handleChangeMode }) => {
         fullWidth
         id="email"
         label="Email"
-        name="email"
+        name="Email"
         autoComplete="email"
         autoFocus
       />
@@ -51,7 +61,7 @@ export const SignUpForm = ({ onSubmit, handleChangeMode }) => {
         margin="normal"
         required
         fullWidth
-        name="password"
+        name="Password"
         label="Пароль"
         type="password"
         id="password"
@@ -61,6 +71,8 @@ export const SignUpForm = ({ onSubmit, handleChangeMode }) => {
         sx={{ mt: 1 }}
         forceCallingCode
         value={phoneNumberValue}
+        name="PhoneNumber"
+        id="phoneNumber"
         onChange={handlePhoneNumberChange}
         defaultCountry="RU"
         onlyCountries={["RU"]}

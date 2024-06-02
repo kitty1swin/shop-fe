@@ -1,11 +1,22 @@
 import { Box, Button, Stack, Typography, Snackbar } from "@mui/material";
 import React, { useCallback, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setBucket } from "../../redux/slices/globalSlice";
 import { ProductModal } from "../Modals/ProductModal";
 
-export const ProductCard = ({ name, image, description, price }) => {
+export const ProductCard = ({
+  name,
+  image,
+  description,
+  price,
+  category,
+  id,
+  feedbacks,
+}) => {
   const dispatch = useDispatch();
+
+  const bucketItems = useSelector((state) => state.global.bucket);
+
   const [isPurchaseDone, setIsPurchaseDone] = useState(false);
   const [isProductOpened, setIsProductOpened] = useState(false);
 
@@ -18,10 +29,21 @@ export const ProductCard = ({ name, image, description, price }) => {
     []
   );
 
-  const handleClickPurchase = useCallback(() => {
-    dispatch(setBucket({ name, image, description, price }));
+  const handleClickPurchase = () => {
+    dispatch(
+      setBucket([
+        ...bucketItems,
+        {
+          Name: name,
+          Image: image,
+          Description: description,
+          Price: price,
+          Id: id,
+        },
+      ])
+    );
     handlePurchaseDone();
-  }, [description, dispatch, handlePurchaseDone, image, name, price]);
+  };
 
   return (
     <Box>
@@ -29,11 +51,14 @@ export const ProductCard = ({ name, image, description, price }) => {
         <img src={image} alt={`${name}`} />
         <Typography variant="h4">{name}</Typography>
         <Typography variant="p">{description}</Typography>
-        <Typography variant="p">{price} ₽.</Typography>
+        <Box display="flex" justifyContent="space-between">
+          <Typography variant="caption">{category}</Typography>
+          <Typography variant="p">{price} ₽.</Typography>
+        </Box>
 
         <Stack direction="column" gap="5px">
           <Button fullWidth onClick={handleProductOpened}>
-            Подробнее
+            Отзывы
           </Button>
           <Button fullWidth onClick={handleClickPurchase} variant="contained">
             Заказать
@@ -52,6 +77,7 @@ export const ProductCard = ({ name, image, description, price }) => {
         name={name}
         open={isProductOpened}
         onClose={handleProductOpened}
+        feedbacks={feedbacks}
       />
     </Box>
   );
